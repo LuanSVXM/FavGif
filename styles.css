@@ -1,13 +1,69 @@
 body{
     min-height: 100vh;
-    width: 100vw;
+    width: 99vw;
     margin: 0;
+    background-color: black;
+}
+.containerordenar{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    margin-bottom: 40px;
 }
 
 
+.fixado {
+    position: fixed;
+    width: 80% !important;
+    z-index: 7;
+}
+
+.custom-select {
+    position: relative;
+    display: block;
+    max-width: 400px;
+    width: 20%;
+    min-width: 180px;
+    border: 1px solid #3C1C78;
+    background-color: #16013E;
+    z-index: 10;
+  }
+  .custom-select select {
+    border: none;
+    outline: none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    margin: 0;
+    display: block;
+    width: 70%;
+    padding: 12px 55px 15px 15px;
+    font-size: 14px;
+    color: #970d75;
+    font-size: 18px;
+  }
+  .custom-select:after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    line-height: 38px;
+    content: ">";
+    text-align: center;
+    color: #714BB9;
+    font-size: 24px;
+    border-left: 1px solid #3C1C78;
+    z-index: -1;
+  }
+  
+
 .container {
     width: 100%;
-    min-height: 100vh;
+    min-height: 94vh;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -45,7 +101,7 @@ header > :last-child {
   width: 100%;
   height: 80px;
   background-color: black;
-  border-radius: 30px;
+  border-radius: 10px;
   margin-top: -2px;
   display: flex;
   justify-content: space-between;
@@ -58,13 +114,30 @@ header > :last-child {
 
 header > :last-child > :first-child > span {
     color: white;
-    font-size: 28px;
+    font-size: 24px;
     font-family: "helvetica";
     cursor: pointer;
+    background: 
+    linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)),
+    linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1));
+  background-size: 100% 0.1em, 0 0.1em;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+  user-select: none;
+}
+
+header > :last-child > :first-child > span:hover {
+    background-size: 0 0.1em, 100% 0.1em;
+}
+
+header > :last-child > :first-child > span:active{
+    opacity: .5;
 }
 
 header > :last-child > :first-child {
-    width: 35%;
+    width: 45%;
+    max-width: 480px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -72,7 +145,8 @@ header > :last-child > :first-child {
 }
 
 header > :last-child > :last-child {
-    width: 40%;
+    width: 45%;
+    max-width: 400px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -80,9 +154,10 @@ header > :last-child > :last-child {
 }
 
 header > :last-child > :last-child > input {
-   width: 60%;
+   width: 70%;
    height: 30px;
    border-radius: 10px;
+   margin-right: -10px;
 }
 
 header > :last-child > :last-child > input:focus-visible{
@@ -92,38 +167,375 @@ header > :last-child > :last-child > input:focus-visible{
 main {
 
     width: 90%;
-    margin-top: 30px;
+    min-height: 60vh;
+    margin-top: 10px;
     background-color: black;
     opacity: 1;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 20px;
+    margin-bottom: 10px;
     opacity: 1;
     
 }
 
-.containerimgsTranding{
-    height: 300px;
-    width: 300px;
+.containergifs {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.containerimgsTranding{
+    max-height: 280px;
+    width: 33%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .containerimgsTranding > img {
 
-    height: 250px;
-    width: 300px;
+    height: 100%;
+    transition: transform .2s;
+    width: 100%;
+    zoom: 0.7;
+
+}
+.containerimgsTranding > :last-child {
+    display: none;
+}
+
+
+.containerimgsTranding:hover{
+    background-color: #030461;  /* #2c3f52 */
+}
+.containerimgsTranding:hover > img {
+    transform:  translateY(-20%) scale(0.5); 
+  }
+
+
+  .containerimgsTranding:hover > :last-child{
+    display: flex;
+    height: 40%;
+    width: 100%;
+    transform:  translateY(-100%);
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerimgsTranding:hover > :last-child > :first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
 
 }
 
-.containerimgsTranding> :last-child {
+.containerimgsTranding:hover > :last-child > :first-child > :first-child {
+    color: #227bc9;
+    font-size: 26px;
+    text-align: center;
+
+}
+
+
+
+.containerimgsTranding:hover > :last-child > :first-child > :last-child {
+    color: #a565cf;
+    font-size: 18px;
+    text-align: center;
+
+}
+
+
+.containerimgsTranding:hover > :last-child > :last-child {
+    height: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.containerimgsTranding> :last-child > span{
+.containerimgsTranding:hover > :last-child > :last-child > div {
+   width: 60%;
+   border: 2px solid wheat;
+   background-color: black;
+   color: purple;
+   font-size: 14px;
+   text-align: center;
+   border-radius: 5px;
+   height: 60%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   user-select: none; 
+   cursor: pointer;
+}
+
+.containerimgsTranding:hover > :last-child > :last-child > div:active {
+    opacity: 0.5;
+} 
+
+
+footer {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > img {
+    max-height: 150px;
+    width: 150px;
+}
+
+footer> :first-child {
+    background-color: black;
+    width: 100%;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-top: 2px solid #c9c9c9;
+    height: 80px;
+}
+
+
+
+footer> :first-child > a {
+    color: blueviolet;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.paginacao {
+    margin-top: 20px;
+
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+
+.paginacao > div {
+    color: white;
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none; 
+    font-size: 24px;
+}
+
+.paginacao > div:hover {
+    border-color: blueviolet;
+}
+
+.pag-selecionado {
+    border-color: blueviolet !important;
+}
+
+.noResult {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.noResult > img {
+    max-height: 250px;
+}
+
+.noResult > span {
+    color: blueviolet ;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.AddFavorito {
+    position: absolute;
+    z-index: 4;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: rgb(88, 18, 140);
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+    cursor: pointer;
+    color: #f531d7;
+}
+
+.AddFavorito:active{
+    opacity: 0.5;
+}
+
+.material-icons{
+    font-size: 28px !important;
+}
+
+.containerbuttonadd{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.ativo {
+    display: flex !important;
+}
+.desativo {
+     display: none !important; 
+}
+
+
+header > :last-child > :last-child > div {
+    width: 30%;
+    height: 36px;
+    background-color: #030461;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+
+}
+
+header > :last-child > :last-child > div> span {
+    color: white;
+}
+
+header > :last-child > :last-child > div:active{
+    opacity: .5;
+}
+
+
+
+@media (max-width:576px) {
+
+    header{
+        width: 100%;
+    }
+
+    header > :first-child {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        padding: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    } 
+
+    header > :last-child {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        padding: 0px;
+    }
+
+    header > :last-child > :first-child{
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    header > :last-child > :last-child{
+        width: 95%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    #FavGif{
+        text-align: center;
+        width: 48%;
+    }
+    .containerimgsTranding{
+        width: 88%;
+    }
+    
+    footer > :first-child {
+        flex-direction: column;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .fixado {
+        position: fixed;
+        width: 100% !important;
+        z-index: 7;
+    }
+    
+}
+
+
+@media (min-width:576px) and (max-width:1000px) {
+
+
+    header{
+        width: 100%;
+    }
+
+    header > :first-child {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        padding: 0px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    } 
+
+    header > :last-child {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        padding: 0px;
+    }
+
+    header > :last-child > :first-child{
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    header > :last-child > :last-child{
+        width: 95%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    header > :last-child > :last-child > input {
+        width: 85%;
+        margin-right: -5px;
+    }
+
+    .containerimgsTranding{
+        width: 45%;
+    }
+
+    
+    .fixado {
+    position: fixed;
+    width: 100% !important;
+    z-index: 7;
+    }
+
+
+
 }
